@@ -32,23 +32,20 @@ def file2matrixOneLine(filename,PosName,NeName):
     np.save("Fea.npy",tempMat)
     mat = transpose(returnMat)
     return mat,label
+
+
 def file2matrix(filename,PosName,NeName):
     fr = open(filename)
     arr=fr.readline()
     arr = arr.strip()
     name=arr.split('\t')
-    #print(shape(name))
-    #print(name[0])
-    #print(name[1])
     name=name[1:shape(name)[0]]
-    print(shape(name))
     label=[]
     for na in name:
         if(na==PosName):
              label.append(1)
         if(na==NeName):
              label.append(-1)
-    print(shape(label),shape(name))
     arrayOLines = fr.readlines()
     listFromLine = arrayOLines[0].split('\t')
     numberOfLines = len(arrayOLines)       #get the number of lines in the file
