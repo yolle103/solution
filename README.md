@@ -6,17 +6,17 @@
 ## Requirements
 
       * Python 2.7.10
-      ```sh
-      pip install -r requirements.txt
-      ```
+```sh
+pip install -r requirements.txt
+```
 
 ## Usage
 
 ### usage for ELM-ksolution/ or Feature selection k-solution
       run
-      ```
-      python run_script.py --help
-      ```
+```
+python run_script.py --help
+```
       to see detail help/ how to run
 
 ## Documentation
