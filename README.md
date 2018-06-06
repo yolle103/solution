@@ -1,11 +1,11 @@
 # K-solution
 
 ## Introduction
-    This is the code for K-solution project.
+This is the code for K-solution project.
 
 ## Requirements
 
-      * Python 2.7.10
+* Python 2.7.10
 ```sh
 pip install -r requirements.txt
 ```
@@ -13,20 +13,20 @@ pip install -r requirements.txt
 ## Usage
 
 ### usage for ELM-ksolution/ or Feature selection k-solution
-      run
+run
 ```
 python run_script.py --help
 ```
-      to see detail help/ how to run
+to see detail help/ how to run
 
 ## Documentation
-    [paper](https://www.nature.com/articles/s41598-017-13184-8.pdf)
+[paper](https://www.nature.com/articles/s41598-017-13184-8.pdf)
 
 ## Maintainers/Sponsors
-      Current maintainers:
+Current maintainers:
 
-      * [Jiamei Liu](https://github.com/yolle103)
+* [Jiamei Liu](https://github.com/yolle103)
 
 
 ## License
-      [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt)
+[GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt)
