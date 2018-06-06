@@ -23,6 +23,7 @@ def get_parser():
     parser.add_argument('-d', '--data_set', help='data set')
     parser.add_argument('-s', '--save_dir', help='save dir')
     parser.add_argument('-f', '--feature_num', help='number of feature used to train ELM/other algorithm')
+    parser.add_argument('-m', '--model_num', help='run model num')
     return parser.parse_args()
 
 
@@ -145,7 +146,8 @@ def baseline_train(x, y, baseline_method = 'SVC', random_state = 2018):
     x_train,x_test,y_train,y_test=cross_validation.train_test_split(
             x, y, test_size=0.3, random_state=random_state)
 
-    method_option = {'SVC' : SVC, 'GaussianNB': GaussianNB}
+    method_option = {'SVC' : SVC, 
+            'GaussianNB': GaussianNB}
     model = method_option[baseline_method]()
     model.fit(x_train, y_train)
     test_acc = accuracy_score(model.predict(x_test), y_test)
@@ -167,13 +169,14 @@ def save_models(models, save_dir):
     model_path = os.path.join(save_dir, 'model.npy')
     score_txt_path = os.path.join(save_dir, 'score.txt')
     np.save(model_path, model_weight)
-    np.savetxt(score_txt_path, score_list, fmt='%s\t%s')
+    np.savetxt(score_txt_path, score_list)
 
 def main():
     args = get_parser()
     data_path = args.data_set
     save_dir = args.save_dir
     feature_num = int(args.feature_num)
+    model_num = int(args.model_num)
     logging.info('runing test with data: {}, feature num: {}'
             .format(data_path, feature_num))
     x, y = load_data(data_path)
@@ -189,7 +192,7 @@ def main():
     logging.info('select top {} features'.format(feature_num))
     x = make_new_data(x, p_value_list, feature_num) 
 
-    ELM_result = run_ELM(x, y, 0.5, 10, 200, 2018)
+    ELM_result = run_ELM(x, y, 0.8, model_num, 200, 2018)
     # calculate baseline result
     baseline_train(x, y, 'GaussianNB')
     baseline_train(x, y, 'SVC')
