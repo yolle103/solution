@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 ## Usage
 
+* 1. different ELM perform similarily well
+* 2. different feature subset perform similarily well 
 ### usage for ELM-ksolution/ or Feature selection k-solution
 run
 ```
